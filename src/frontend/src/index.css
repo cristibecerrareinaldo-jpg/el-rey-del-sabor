@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/assets/fonts/Nunito.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  /* El Rey del Sabor — fast-food mascot-driven, dark primary canvas */
+  --background: 0.16 0.02 25;
+  --foreground: 0.97 0.005 90;
+
+  --card: 0.21 0.02 25;
+  --card-foreground: 0.97 0.005 90;
+
+  --popover: 0.21 0.02 25;
+  --popover-foreground: 0.97 0.005 90;
+
+  --primary: 0.58 0.24 27; /* vibrant red #E30613 */
+  --primary-foreground: 0.99 0.005 90;
+
+  --secondary: 0.3 0.1 27; /* deep red surface */
+  --secondary-foreground: 0.95 0.01 90;
+
+  --muted: 0.24 0.015 25;
+  --muted-foreground: 0.72 0.015 85;
+
+  --accent: 0.85 0.17 90; /* golden yellow #FFD700 */
+  --accent-foreground: 0.18 0.03 25;
+
+  --destructive: 0.55 0.24 27;
+  --destructive-foreground: 0.97 0.005 90;
+
+  --success: 0.62 0.16 145;
+  --success-foreground: 0.97 0.005 145;
+
+  --warning: 0.82 0.16 80;
+  --warning-foreground: 0.18 0.03 80;
+
+  --border: 0.85 0.17 90; /* yellow thick borders = brand signature */
+  --input: 0.3 0.1 27;
+  --ring: 0.85 0.17 90;
+
+  --chart-1: 0.58 0.24 27;
+  --chart-2: 0.85 0.17 90;
+  --chart-3: 0.62 0.16 145;
+  --chart-4: 0.72 0.15 190;
+  --chart-5: 0.55 0.2 320;
+
+  /* Sidebar tokens */
+  --sidebar: 0.14 0.02 25;
+  --sidebar-foreground: 0.97 0.005 90;
+  --sidebar-primary: 0.85 0.17 90;
+  --sidebar-primary-foreground: 0.18 0.03 25;
+  --sidebar-accent: 0.58 0.24 27;
+  --sidebar-accent-foreground: 0.99 0.005 90;
+  --sidebar-border: 0.3 0.1 27;
+  --sidebar-ring: 0.85 0.17 90;
+
+  /* Fonts */
+  --font-display: "Bricolage Grotesque";
+  --font-body: "Nunito";
+  --font-mono: "Geist Mono";
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.58 0.24 27),
+    oklch(0.5 0.22 18)
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.85 0.17 90),
+    oklch(0.78 0.16 70)
+  );
+  --gradient-banner: linear-gradient(
+    90deg,
+    oklch(0.58 0.24 27) 0%,
+    oklch(0.5 0.22 18) 100%
+  );
+
+  /* Transition */
+  --transition-smooth: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Radius */
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark mode mirrors :root — dark is the primary canvas for this brand */
+  --background: 0.16 0.02 25;
+  --foreground: 0.97 0.005 90;
+  --card: 0.21 0.02 25;
+  --card-foreground: 0.97 0.005 90;
+  --popover: 0.21 0.02 25;
+  --popover-foreground: 0.97 0.005 90;
+  --primary: 0.58 0.24 27;
+  --primary-foreground: 0.99 0.005 90;
+  --secondary: 0.3 0.1 27;
+  --secondary-foreground: 0.95 0.01 90;
+  --muted: 0.24 0.015 25;
+  --muted-foreground: 0.72 0.015 85;
+  --accent: 0.85 0.17 90;
+  --accent-foreground: 0.18 0.03 25;
+  --destructive: 0.55 0.24 27;
+  --destructive-foreground: 0.97 0.005 90;
+  --success: 0.62 0.16 145;
+  --success-foreground: 0.97 0.005 145;
+  --warning: 0.82 0.16 80;
+  --warning-foreground: 0.18 0.03 80;
+  --border: 0.85 0.17 90;
+  --input: 0.3 0.1 27;
+  --ring: 0.85 0.17 90;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-display: "Bricolage Grotesque";
+  --font-body: "Nunito";
+  --font-mono: "Geist Mono";
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background font-body text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Chunky fast-food button with thick border + offset pop shadow */
+  .btn-king {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-primary px-7 py-3.5 font-display text-base font-extrabold
+           text-primary-foreground uppercase tracking-wide
+           border-[3px] border-foreground
+           shadow-[4px_4px_0_0_oklch(0.85_0.17_90)]
+           transition-[transform,box-shadow] duration-200
+           hover:-translate-x-[2px] hover:-translate-y-[2px]
+           hover:shadow-[6px_6px_0_0_oklch(0.85_0.17_90)]
+           active:translate-x-[2px] active:translate-y-[2px]
+           active:shadow-[1px_1px_0_0_oklch(0.85_0.17_90)];
+  }
+
+  .btn-king-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-accent px-7 py-3.5 font-display text-base font-extrabold
+           text-accent-foreground uppercase tracking-wide
+           border-[3px] border-foreground
+           shadow-[4px_4px_0_0_oklch(0.58_0.24_27)]
+           transition-[transform,box-shadow] duration-200
+           hover:-translate-x-[2px] hover:-translate-y-[2px]
+           hover:shadow-[6px_6px_0_0_oklch(0.58_0.24_27)]
+           active:translate-x-[2px] active:translate-y-[2px]
+           active:shadow-[1px_1px_0_0_oklch(0.58_0.24_27)];
+  }
+
+  .btn-king-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-transparent px-7 py-3.5 font-display text-base font-extrabold
+           text-foreground uppercase tracking-wide
+           border-[3px] border-foreground
+           transition-[background-color,transform,box-shadow] duration-200
+           hover:bg-secondary hover:-translate-x-[2px] hover:-translate-y-[2px]
+           hover:shadow-[4px_4px_0_0_oklch(0.85_0.17_90)]
+           active:translate-x-[2px] active:translate-y-[2px]
+           active:shadow-[1px_1px_0_0_oklch(0.85_0.17_90)];
+  }
+
+  /* Menu / product card — chunky bordered, yellow accent edge */
+  .card-king {
+    @apply rounded-2xl bg-card text-card-foreground
+           border-[3px] border-foreground
+           shadow-[5px_5px_0_0_oklch(0.58_0.24_27)]
+           transition-[transform,box-shadow] duration-200
+           hover:-translate-y-1 hover:shadow-[7px_7px_0_0_oklch(0.58_0.24_27)];
+  }
+
+  /* Section banner ribbon — red gradient with yellow underline */
+  .ribbon-king {
+    @apply inline-block rounded-full
+           bg-gradient-to-r from-[oklch(0.58_0.24_27)] to-[oklch(0.50_0.22_18)]
+           px-5 py-2 font-display text-sm font-extrabold uppercase tracking-widest
+           text-primary-foreground
+           border-[3px] border-foreground;
+  }
+
+  /* Pill badge for prices / tags */
+  .badge-king {
+    @apply inline-flex items-center rounded-full
+           bg-accent px-3 py-1 font-display text-sm font-extrabold
+           text-accent-foreground
+           border-[2px] border-foreground;
+  }
+
+  /* Section heading underline accent */
+  .heading-king {
+    @apply font-display font-extrabold tracking-tight
+           text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-stroke-thick {
+    -webkit-text-stroke: 2px oklch(0.16 0.02 25);
+    paint-order: stroke fill;
+  }
+
+  .text-stroke-yellow {
+    -webkit-text-stroke: 2px oklch(0.85 0.17 90);
+    paint-order: stroke fill;
+  }
+
+  .bg-grid-king {
+    background-image: linear-gradient(
+        oklch(0.85 0.17 90 / 0.06) 1px,
+        transparent 1px
+      ), linear-gradient(90deg, oklch(0.85 0.17 90 / 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .bg-rays-king {
+    background: radial-gradient(
+        circle at 50% 0%,
+        oklch(0.58 0.24 27 / 0.25),
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 100% 100%,
+        oklch(0.85 0.17 90 / 0.12),
+        transparent 50%
+      );
+  }
+
+  .shadow-pop-yellow {
+    box-shadow: 4px 4px 0 0 oklch(0.85 0.17 90);
+  }
+
+  .shadow-pop-red {
+    box-shadow: 4px 4px 0 0 oklch(0.58 0.24 27);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}

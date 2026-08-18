@@ -1,0 +1,21 @@
+{
+  "overview": "Landing page para El Rey del Sabor, restaurante de pollo a la Broaster, con menú editable, botón flotante de WhatsApp y estética fast-food.",
+  "features": [
+    "Landing page completa para restaurante de pollo broaster",
+    "Menú con precios en pesos editables",
+    "Botón flotante de WhatsApp para pedidos",
+    "Galería de fotos de ejemplo editables",
+    "Secciones: Hero, Sobre nosotros, Menú, Por qué elegirnos, Ubicación, Footer",
+    "Datos centralizados y editables en un archivo de configuración",
+    "Diseño responsivo fast-food con paleta rojo/amarillo/negro"
+  ],
+  "category": "landing-page",
+  "tags": [
+    "restaurante",
+    "pollo-broaster",
+    "fast-food",
+    "landing-page",
+    "whatsapp"
+  ],
+  "last_updated": "2026-08-18T02:48:12.837Z"
+}

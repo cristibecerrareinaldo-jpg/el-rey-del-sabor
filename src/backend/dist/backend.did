@@ -1,0 +1,114 @@
+type WhyChooseUsFeature = 
+ record {
+   description: text;
+   icon: text;
+   id: nat;
+   title: text;
+ };
+type Value = 
+ variant {
+   "bool": bool;
+   float: float64;
+   "int": int;
+   "nat": nat;
+   "null";
+   "text": text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type SocialLink = 
+ record {
+   id: text;
+   linkLabel: text;
+   url: text;
+ };
+type Result__1 = 
+ variant {
+   err: Error;
+   ok;
+ };
+type Result = 
+ record {
+   hasMore: bool;
+   rows: vec vec Cell;
+ };
+type MenuItem = 
+ record {
+   category: MenuCategory;
+   description: text;
+   id: nat;
+   name: text;
+   price: text;
+ };
+type MenuCategory = text;
+type GalleryImage = 
+ record {
+   caption: text;
+   id: nat;
+   url: text;
+ };
+type Error = 
+ variant {
+   AmbiguousAttribute: record {
+                         field: text;
+                         sources: vec text;
+                       };
+   FrontendOriginMismatch: record {
+                             expected: vec text;
+                             got: text;
+                           };
+   FrontendOriginsNotConfigured;
+   MalformedCandid;
+   MissingField: text;
+   MixedSsoSources: record {
+                      otherKeys: vec text;
+                      ssoKeys: vec text;
+                    };
+   NoAttributes;
+   Stale: record {ageNs: nat;};
+   UnknownNonce;
+   UntrustedSsoSource: record {domain: text;};
+ };
+type DayHours = 
+ record {
+   days: text;
+   hours: text;
+ };
+type Cell = 
+ record {
+   name: text;
+   value: Value;
+ };
+type BusinessInfo = 
+ record {
+   address: text;
+   name: text;
+   openingHours: vec DayHours;
+   phone: text;
+   slogan: text;
+   socialLinks: vec SocialLink;
+   whatsapp: text;
+ };
+service : {
+  __accessControlState: () -> (reserved) query;
+  __businessInfo: () -> (BusinessInfo) query;
+  __gallery: () -> (vec GalleryImage) query;
+  __menu: () -> (vec MenuItem) query;
+  __whyChooseUs: () -> (vec WhyChooseUsFeature) query;
+  _initialize_access_control: () -> ();
+  _internet_identity_sign_in_finish: () -> (Result__1);
+  _internet_identity_sign_in_start: () -> (blob);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  execute: (qJson: text) -> (Result) query;
+  getBusinessInfo: () -> (BusinessInfo) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getGallery: () -> (vec GalleryImage) query;
+  getMenu: () -> (vec MenuItem) query;
+  getWhyChooseUs: () -> (vec WhyChooseUsFeature) query;
+  isCallerAdmin: () -> (bool) query;
+  schema: () -> (text) query;
+}
